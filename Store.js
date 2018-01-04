@@ -2,7 +2,7 @@ import { extendObservable } from 'mobx';
 class myStore {
   constructor(){
     extendObservable(this, {
-      key: "value",
+      header: "Header",
     })
   }
 }

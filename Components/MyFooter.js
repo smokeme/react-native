@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Footer, FooterTab, Button, Icon, Text } from 'native-base';
+import { Container,Content,Footer, FooterTab, View,Button, Icon, Text } from 'native-base';
+import { NativeRouter,Route , Link } from 'react-router-native'
+import MyForm from './MyForm'
+import MyCard from './MyCard'
+
 export default class MyFooter extends Component {
   constructor(){
     super();
@@ -13,26 +17,33 @@ export default class MyFooter extends Component {
   }
   render() {
     return (
-        <Footer>
+        <Container>
+        <Content>
+        <Route exact path="/" component={MyForm} />
+        <Route path="/x" component={MyCard} />
+
+        </Content>
+          <Footer>
           <FooterTab>
-            <Button vertical disabled={this.state.button.includes('Button1')} onPress={this.changeMe.bind(this,'Button1')}>
-              <Icon name="apps" />
-              <Text>Apps</Text>
-            </Button>
-            <Button vertical disabled={this.state.button.includes('Button2')} onPress={this.changeMe.bind(this,'Button2')}>
-              <Icon name="camera" />
-              <Text>Camera</Text>
-            </Button>
-            <Button vertical disabled={this.state.button.includes('Button3')} onPress={this.changeMe.bind(this,'Button3')}>
-              <Icon name="navigate" />
-              <Text>Navigate</Text>
-            </Button>
-            <Button vertical disabled={this.state.button.includes('Button4')} onPress={this.changeMe.bind(this,'Button4')}>
-              <Icon name="person" />
-              <Text>Contact</Text>
-            </Button>
+          <Button vertical>
+          <Link to ='/'>
+          <View>
+          <Text>Home</Text>
+          <Icon name='home' />
+          </View>
+          </Link>
+          </Button>
+          <Button vertical>
+          <Link to ='/x'>
+          <View>
+          <Icon name='apps' />
+          </View>
+          </Link>
+          </Button>
           </FooterTab>
         </Footer>
+        </Container>
+
     );
   }
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import {observer} from 'mobx-react';
+import store from '../Store'
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
-export default class HeaderExample extends Component {
+export default observer(class HeaderExample extends Component {
   alertMe(){
     alert('test')
   }
@@ -13,7 +15,7 @@ export default class HeaderExample extends Component {
             </Button>
           </Left>
           <Body>
-            <Title>Navigate</Title>
+            <Title>{store.header}</Title>
           </Body>
           <Right>
             <Button onPress={this.alertMe.bind(this)} transparent>
@@ -23,4 +25,4 @@ export default class HeaderExample extends Component {
         </Header>
     );
   }
-}
+})

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Form, Item, Input, Button, Text } from 'native-base';
+
+import { Form, Item, Input, Button,Icon, Text, View } from 'native-base';
+import { NativeRouter,Route , Link } from 'react-router-native'
+
 export default class MyForm extends Component {
   constructor(){
     super();

@@ -5,7 +5,7 @@ import store from './Store';
 import MyHeader from './Components/MyHeader'
 import { Container, Content} from 'native-base';
 import MyFooter from './Components/MyFooter'
-import MyForm from './Components/MyForm'
+import { NativeRouter,Route , Link } from 'react-router-native'
 
 const App = observer(class App extends Component {
   constructor(){
@@ -16,13 +16,13 @@ const App = observer(class App extends Component {
   }
   render() {
     return (
+      <NativeRouter>
       <Container >
         <MyHeader />
-        <Content>
-        <MyForm />
-        </Content>
         <MyFooter />
       </Container>
+      </NativeRouter>
+
     );
   }
 })
