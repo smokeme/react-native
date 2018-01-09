@@ -20,6 +20,8 @@ export default observer(class MyFooter extends Component {
   }
   render() {
     return (
+      <NativeRouter>
+
         <Container>
         <Content>
         {store.authenticated ? <Route exact path="/" component={MyLogout} /> : <Route exact path="/" component={MyForm} />}
@@ -29,7 +31,7 @@ export default observer(class MyFooter extends Component {
           <Footer>
           <FooterTab>
           <Button vertical>
-          <Link to ='/'>
+          <Link to ='/x'>
           <View>
           <Text>Home</Text>
           <Icon name='home' />
@@ -46,6 +48,7 @@ export default observer(class MyFooter extends Component {
           </FooterTab>
         </Footer>
         </Container>
+        </NativeRouter>
 
     );
   }
