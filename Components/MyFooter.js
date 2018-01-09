@@ -3,8 +3,11 @@ import { Container,Content,Footer, FooterTab, View,Button, Icon, Text } from 'na
 import { NativeRouter,Route , Link } from 'react-router-native'
 import MyForm from './MyForm'
 import MyCard from './MyCard'
+import MyLogout from './MyLogout'
+import {observer} from 'mobx-react';
+import store from '../Store';
 
-export default class MyFooter extends Component {
+export default observer(class MyFooter extends Component {
   constructor(){
     super();
     this.state = {
@@ -19,7 +22,7 @@ export default class MyFooter extends Component {
     return (
         <Container>
         <Content>
-        <Route exact path="/" component={MyForm} />
+        {store.authenticated ? <Route exact path="/" component={MyLogout} /> : <Route exact path="/" component={MyForm} />}
         <Route path="/x" component={MyCard} />
 
         </Content>
@@ -46,4 +49,4 @@ export default class MyFooter extends Component {
 
     );
   }
-}
+})

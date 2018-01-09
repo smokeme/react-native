@@ -3,6 +3,9 @@ class myStore {
   constructor(){
     extendObservable(this, {
       header: "Header",
+      authenticated: false,
+      username: "",
+      token: ""
     })
   }
 }

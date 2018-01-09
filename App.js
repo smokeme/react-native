@@ -6,13 +6,16 @@ import MyHeader from './Components/MyHeader'
 import { Container, Content} from 'native-base';
 import MyFooter from './Components/MyFooter'
 import { NativeRouter,Route , Link } from 'react-router-native'
-
+import auth from './auth'
 const App = observer(class App extends Component {
   constructor(){
     super();
     this.state = {
       key: "not-value",
     }
+  }
+  componentWillMount(){
+    auth.firstLoad()
   }
   render() {
     return (
