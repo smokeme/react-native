@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {  Card, CardItem, Body, Button, Text , CheckBox} from 'native-base';
-
+import store from '../Store';
 
 export default class MyItem extends Component {
   constructor(){
@@ -17,6 +17,10 @@ export default class MyItem extends Component {
     x.completed = !x.completed
     this.setState({object:x})
   }
+  showDetail(){
+    store.object = this.state.object
+    store.showDetail = true
+  }
   render(){
   return (
     <Card>
@@ -27,6 +31,9 @@ export default class MyItem extends Component {
       <Body>
         <Text>{this.state.object.title}</Text>
       </Body>
+      <Button onPress={this.showDetail.bind(this)}>
+      <Text>Detail</Text>
+      </Button>
     </CardItem>
        </Card>
 

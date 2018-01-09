@@ -5,7 +5,11 @@ class myStore {
       header: "Header",
       authenticated: false,
       username: "",
-      token: ""
+      token: "",
+      status: true,
+      showDetail: false,
+      object: {},
+
     })
   }
 }

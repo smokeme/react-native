@@ -6,6 +6,7 @@ import MyCard from './MyCard'
 import MyLogout from './MyLogout'
 import {observer} from 'mobx-react';
 import store from '../Store';
+import MyDetail from './MyDetail';
 
 export default observer(class MyFooter extends Component {
   constructor(){
@@ -18,6 +19,9 @@ export default observer(class MyFooter extends Component {
     let x = button + " " + this.state.button
     this.setState({button:x})
   }
+  showPage(){
+    store.showDetail = false
+  }
   render() {
     return (
       <NativeRouter>
@@ -25,7 +29,7 @@ export default observer(class MyFooter extends Component {
         <Container>
         <Content>
         {store.authenticated ? <Route exact path="/" component={MyLogout} /> : <Route exact path="/" component={MyForm} />}
-        <Route path="/x" component={MyCard} />
+        {store.showDetail ? <Route path="/x" component={MyDetail} /> : <Route path="/x" component={MyCard} /> }
 
         </Content>
           <Footer>
@@ -39,7 +43,7 @@ export default observer(class MyFooter extends Component {
           </Link>
           </Button>
           <Button vertical>
-          <Link to ='/x'>
+          <Link to ='/x' onPress={this.showPage.bind(this)}>
           <View>
           <Icon name='apps' />
           </View>
